@@ -1,0 +1,54 @@
+number = 3+7;
+print ("the total is;", +number)
+
+Name = "Henri" # If it is a string we need to write inside the double quotes
+# hashtag is for writing notes
+
+
+for letter in Name:
+    print(letter)
+
+
+age = 8
+if age <=7: print("Free") # lower than 7
+else: print("Buy a ticket") # higher than seven
+if age <18: print("Child ticket")
+else: print ("adult ticket")
+
+sentence = "casinonumbercase"
+
+# extract first 3 letters
+print("Print first 3 letters", sentence[0:3]) #start: end
+print(sentence[:3])
+#Extract letters from 5-9
+print(sentence[5:9])
+#Extract letters from 5th to end
+print(sentence[5:])
+#Extract the last character
+print(sentence[-1])
+#Extract last 4 characters
+print(sentence[-4:])
+#extract first letter of the substring starting from 5
+# (sentence[5:][0]) this will extract a substring starting from 5
+#[0]: this will take the first character of that substring 
+print(sentence[5:][0])
+# extract first 5 letters of the substring starting from 5
+print(sentence[5:][0:5])
+#Extract entire string/text
+print(sentence[:])
+#Extract every second character
+print(sentence[::2])
+
+sentence = "alice went to the park and ate a hotdog"
+
+words = sentence.split("") #split the sentence to words
+
+print(words)
+#extract first word
+print(words[0])
+#extract the first 3 words
+print(words[0:3])
+#extract last three words
+print(words[-3:])
+#print number of words
+print("print")

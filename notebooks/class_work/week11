@@ -41,7 +41,7 @@ print(sentence[::2])
 
 sentence = "alice went to the park and ate a hotdog"
 
-words = sentence.split("") #split the sentence to words
+words = sentence.split("margarethadthreeapples") #split the sentence to words
 
 print(words)
 #extract first word
@@ -52,3 +52,157 @@ print(words[0:3])
 print(words[-3:])
 #print number of words
 print("print")
+
+
+sentence = "When Alice and her younger brother finally arrived at the old wooden school building early in the morning the classes had already begun"
+words = sentence.split(" ")
+print([word for word in words])
+
+sentence = "When Alice and her younger brother finally arrived at the old wooden school building early in the morning the classes had already begun"
+
+words = sentence.split(" ")
+
+
+print([word[0] for word in words])
+
+[word[0:2] for word in words]
+
+[len(word) for word in words]
+
+[word for word in words if len(word) <= 5]
+
+[word[0] + word[-1] for word in words if len(word) >= 5]
+
+"_".join([word[0] + word[-1] for word in words if len(word) >= 5])
+
+words[::-1]
+
+print(words[0] + " " + str(len(words[0])))
+
+[word[0] + " " + str(len(word)) for word in words]
+
+ 
+
+from wordcloud import WordCloud
+
+wc = WordCloud().generate("sun shine shine shows light light")  
+
+img = wc.to_image()                    
+
+img.show() 
+
+import urllib.request 
+
+# Open the URL, read its content, and decode it from bytes to a string.
+
+
+text = urllib.request.urlopen("https://drive.google.com/file/d/1pHj8UJli0NrsboQcrcrdh9T1LD-2msHu/view?usp=sharing").read().decode("utf-8")
+
+text[:50]   
+
+WordCloud().generate_from_text(text).to_image()
+
+WordCloud(stopwords=["and", "then", "but"], background_color="white").generate_from_text(text).to_image()
+
+from PIL import Image                     
+
+import urllib.request                     
+
+# Download the image from the given URL and save it locally as "pilt1.png". Replace the File_ID with the image you are using
+
+
+img = urllib.request.urlretrieve(
+
+   "https://drive.google.com/uc?export=download&id=1KgYENGn2rcDhcRBRtRWtQ5xUQLN8UNtF",
+
+    "image1.png"
+
+)
+
+
+Image.open("image1.png")                  
+
+import urllib.request                             
+
+from PIL import Image                             
+
+import numpy as np                                 
+
+
+text = urllib.request.urlopen(
+
+   "https://drive.google.com/uc?export=download&id=1pHj8UJli0NrsboQcrcrdh9T1LD-2msHu"
+
+).read().decode("utf-8")
+
+
+img = urllib.request.urlretrieve(
+
+   "https://drive.google.com/uc?export=download&id=1KgYENGn2rcDhcRBRtRWtQ5xUQLN8UNtF",
+
+    "image1.png"
+
+)
+
+
+WordCloud(
+
+   mask=np.array(Image.open("image1.png")),      
+
+   background_color="white"                     
+
+).generate_from_text(text).to_image()    
+
+import urllib.request 
+
+from PIL import Image 
+
+import numpy as np     
+
+
+text = urllib.request.urlopen(
+
+   "https://drive.google.com/uc?export=download&id=1pHj8UJli0NrsboQcrcrdh9T1LD-2msHu"
+
+).read().decode("utf-8")
+
+
+image_file = urllib.request.urlretrieve(
+
+   "https://drive.google.com/uc?export=download&id=1KgYENGn2rcDhcRBRtRWtQ5xUQLN8UNtF",
+
+   "image1.png"
+
+)
+
+
+stopwords_list = urllib.request.urlopen(
+
+   "https://gist.githubusercontent.com/sebleier/554280/raw/7e0e4a1ce04c2bb7bd41089c9821dbcf6d0c786c/NLTK's%2520list%2520of%2520english%2520stopwords"
+
+).read().decode("utf-8").split("\n")
+
+
+WordCloud(
+
+   mask=np.array(Image.open("image1.png")),
+
+   background_color="white",
+
+   stopwords=stopwords_list 
+
+).generate_from_text(text).to_image()
+
+def color_function(word, font_size, position, orientation, random_state=None, **additional_args):
+
+   if len(word) < 4:       # If the word has fewer than 4 letters
+
+       return "green"       # color it green
+
+   return "blue"            # Otherwise, color it blue
+
+
+# Generate a word cloud from the text and recolor it using the custom color function
+
+WordCloud().generate_from_text(text).recolor(color_func=color_function).to_image()
+wc.to_file("my_wordcloud.png")
